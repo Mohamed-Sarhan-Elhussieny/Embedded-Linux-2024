@@ -1,14 +1,16 @@
 import pyautogui
 from  time import sleep
 
-'''
-#python uy.py
+
 pyautogui.press('win')
 sleep(2)
 pyautogui.write('vscode')
 pyautogui.press('enter')
-sleep(6)
-'''
+sleep(2)
+pyautogui.press('f11')
+sleep(2)
+
+
 
 try:
     location = None
@@ -18,15 +20,16 @@ try:
 except pyautogui.ImageNotFoundException:
     print('extensions not found !')
     exit()
-    
+    clangd
+
 
 sleep(2)
 pyautogui.click(location.left, location.top+5, duration=1)
-pyautogui.moveTo(170,124)    # search bar
+pyautogui.moveTo(170,124)   
 sleep(2)
 pyautogui.click()
 pyautogui.write('clangd')
-pyautogui.moveTo(184,205)    # search bar
+pyautogui.moveTo(184,205)   
 sleep(2)
 pyautogui.click()
 pyautogui.moveTo(786,281)
@@ -36,7 +39,7 @@ pyautogui.click()
 
 
 sleep(2)
-pyautogui.moveTo(170,124)    # search bar
+pyautogui.moveTo(170,124)    
 sleep(2)
 pyautogui.click()
 with pyautogui.hold('ctrl'):
@@ -45,7 +48,7 @@ sleep(2)
 pyautogui.press('delete')
 sleep(3)
 pyautogui.write('cmake tools')
-pyautogui.moveTo(184,205)    # search bar
+pyautogui.moveTo(184,205)   
 sleep(2)
 pyautogui.click()
 pyautogui.moveTo(786,281)
@@ -54,7 +57,7 @@ pyautogui.click()
 
 
 sleep(2)
-pyautogui.moveTo(170,124)    # search bar
+pyautogui.moveTo(170,124)    
 sleep(2)
 pyautogui.click()
 with pyautogui.hold('ctrl'):
@@ -63,7 +66,7 @@ sleep(2)
 pyautogui.press('delete')
 sleep(3)
 pyautogui.write('c++ testmate')
-pyautogui.moveTo(184,205)    # search bar
+pyautogui.moveTo(184,205)   
 sleep(2)
 pyautogui.click()
 pyautogui.moveTo(786,281)
@@ -72,7 +75,7 @@ pyautogui.click()
 
 
 sleep(2)
-pyautogui.moveTo(170,124)    # search bar
+pyautogui.moveTo(170,124)   
 sleep(2)
 pyautogui.click()
 with pyautogui.hold('ctrl'):
@@ -81,7 +84,7 @@ sleep(2)
 pyautogui.press('delete')
 sleep(3)
 pyautogui.write(' c++ helper')
-pyautogui.moveTo(184,205)    # search bar
+pyautogui.moveTo(184,205)   
 sleep(2)
 pyautogui.click()
 pyautogui.moveTo(786,281)
@@ -90,7 +93,7 @@ pyautogui.click()
 
 
 sleep(2)
-pyautogui.moveTo(170,124)    # search bar
+pyautogui.moveTo(170,124)    
 sleep(2)
 pyautogui.click()
 with pyautogui.hold('ctrl'):
@@ -99,7 +102,7 @@ sleep(2)
 pyautogui.press('delete')
 sleep(3)
 pyautogui.write('cmake ')
-pyautogui.moveTo(184,205)    # search bar
+pyautogui.moveTo(184,205)   
 sleep(2)
 pyautogui.click()
 pyautogui.moveTo(786,281)
