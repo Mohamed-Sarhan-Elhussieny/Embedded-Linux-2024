@@ -1,0 +1,6 @@
+import sys
+
+
+args = sys.argv[0:]  # Exclude the script name itself
+print(f"Number of arguments: {len(args)}")
+print(f"Argument List: {args}")
