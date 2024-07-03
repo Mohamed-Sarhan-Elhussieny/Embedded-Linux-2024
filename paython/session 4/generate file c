@@ -1,0 +1,12 @@
+import os
+import shutil
+if os.path.exists("project"):
+     shutil.rmtree("project")
+     print("project delete")
+
+os.system("mkdir project\\src")
+os.system("type nul > project\\src\\main.cpp")
+
+f=open("project/src/main.cpp",'w')
+f.write("#include <iostream>\nint main()\n{\n    return 0;\n}\n")
+f.close()
