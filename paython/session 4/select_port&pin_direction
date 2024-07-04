@@ -1,0 +1,29 @@
+import math
+
+def port(x,y):
+   binary_value = ''.join(y[::-1])
+   print(f" \n \n void init_PORTA_DIR(void)  \n {{ \n DDR{x} = 0b{binary_value}; \n   }} ")
+    
+
+list_input={"in","IN","iN","In","i"}
+list_output={"OUT","out","Out","OUt","o"}
+
+
+PORT=input("enter Port DDR(A,B,C,D)").upper()
+value=[]
+i=0
+while i <8:
+   mode=input(f"please enter bit {i} mode:")
+   i+=1
+  
+   if mode  in list_input:
+          value.append("0")
+   elif mode  in list_output:
+         value.append("1")
+   else :
+        print("you choice is (in) or (out)=> (input  || output)")
+        i-=1
+    
+        
+
+port(PORT,value)
