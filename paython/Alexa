@@ -1,0 +1,59 @@
+from gtts import gTTS  
+import os
+import playsound   
+import speech_recognition as sr
+import datetime
+
+lan="ar"
+
+def text_voice(text): 
+    tts=gTTS(text=text,lang=lan,slow=False)
+    tts.save("halo.mp3")
+    playsound.playsound("halo.mp3",True)
+    os.remove("halo.mp3")
+
+recognizer = sr.Recognizer()
+
+def get_clock():
+    return datetime.datetime.now().strftime("%H:%M:%S")
+def get_date():
+    return datetime.datetime.now().strftime("%A %d/%m/%Y")
+
+def listen():
+   
+    try:
+        with sr.Microphone() as source:
+             recognizer.adjust_for_ambient_noise(source)
+             print("listening...")
+             voice=recognizer.listen(source)
+             word = recognizer.recognize_google(voice, language=lan)
+             if 'اليكسا' in word:
+                  print(word) 
+                  text_voice(word)
+                  return word
+             else:
+                    return ""      
+    except:
+        text_voice("لم أفهمك")
+
+
+def start():
+    active = True
+    while active:
+        command=listen()
+        if 'انهاء' in command:
+            active = False
+        elif 'تاريخ' in command:
+                text_voice( ".التاريخ الان هو ." +get_date())
+        elif 'ساعه 'in command:
+            text_voice(f'الساعة الآن {get_clock()}')
+        elif 'كيف حالك' in command:
+                text_voice(".بخير الحمد لله .")
+         elif 'عنوانك' in command:
+                text_voice(".أنا أسكن في اسماعيلية .") 
+
+    text_voice("مع السلامه")
+
+   
+
+start()
