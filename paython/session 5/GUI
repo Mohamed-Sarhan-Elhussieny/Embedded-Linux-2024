@@ -1,0 +1,12 @@
+from tkinter import *
+r=Tk()
+def display():
+    print("dont press me :(")
+
+r.title('TASK')
+r.geometry('200x100')
+Button(r,command=display,text="Button 1",background="black",foreground="red").grid(row=0,column=1)
+Button(r,command=display,text="Button 2",background="black",foreground="red").grid(row=1,column=0)
+Button(r,command=display,text="Button 3",background="black",foreground="red").grid(row=2,column=1)
+Button(r,command=display,text="Button 4",background="black",foreground="red").grid(row=1,column=2)
+r.mainloop()
