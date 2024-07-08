@@ -1,0 +1,37 @@
+
+from tkinter import *
+
+
+f=Tk()
+f.title('TASK')
+f.geometry('400x500')
+
+v=StringVar()
+k=StringVar()
+t=IntVar()
+
+def calculate():
+    num1 = float(v.get())
+    num2 = float(k.get())
+    if t.get() == 1:
+        result = num1 + num2
+    elif t.get() == 2:
+        result = num1 - num2
+    else:
+        result = "Select an operation"
+    Label(text=f"Result: {result}").grid(row=7,column=2)
+
+
+
+
+Label(f,text="Enter the frist num:",font="black").grid(row=0, column=0)
+Label(f,text="Enter the second num:",font="black").grid(row=1, column=0)
+Listbox(f,)
+Entry(f,fg="black",font=('calibre',10,'normal'), bd=2, textvariable=v).grid(row=0, column=1)
+Entry(f,fg="black",font=('calibre',10,'normal'), bd=2, textvariable=k).grid(row=1, column=1)
+
+Radiobutton(f,text="sum",variable=t,value=1).grid(row=5, column=1)
+Radiobutton(f,text="sub",variable=t,value=2).grid(row=6, column=1)
+Button(f, text="Calculate", command=calculate).grid(row=3, column=0, columnspan=2, pady=10)
+
+f.mainloop()
