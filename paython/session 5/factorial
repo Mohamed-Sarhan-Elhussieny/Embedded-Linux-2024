@@ -1,0 +1,27 @@
+from tkinter import *
+
+r = Tk()
+r.title("Task")
+r.geometry('400x500')
+
+t = IntVar()
+
+def print_factorial():
+    x=t.get()
+    y=factorial(x) 
+    Label(r,text=f"The factorial of {x} is {y}").grid()
+
+def factorial(x):
+    if x == 0 or x == 1:
+        return 1
+    else:
+        return x * factorial(x - 1)   
+
+
+Label(r, text="Enter value of integer N:", font="black").grid(row=0, column=0, padx=10, pady=10)
+
+Entry(r, background="white", font=('calibre', 10, 'normal'), bd=2, textvariable=t).grid(row=1, column=0, padx=10, pady=10)
+
+Button(r,text="Enter",command=print_factorial).grid()
+
+r.mainloop()
