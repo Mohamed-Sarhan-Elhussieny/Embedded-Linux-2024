@@ -1,0 +1,57 @@
+#include <iostream>
+#define SIZE 5
+int maximum_fun(int array[])
+{
+int max=0;
+
+  for(int i=0;i<SIZE;i++)
+{
+    if(max<array[i])
+    max=array[i];
+}  
+    return max;
+}
+int main() {
+   int arr[SIZE]={5,8,90,12,33};
+
+std::cout<<"the max number is :"<< maximum_fun(arr)<<std::endl;
+    return 0;
+}
+/************************************/
+
+#include <iostream>
+
+char arr[100];
+
+void merge_fun(const char array[], const char array2[]) {
+    int i = 0;
+    int j = 0;
+
+    // Copy the first array into arr
+    while (array[i] != '\0') {
+        arr[i] = array[i];
+        i++;
+    }
+
+    // Copy the second array into arr
+    while (array2[j] != '\0') {
+        arr[i] = array2[j];
+        i++;
+        j++;
+    }
+
+    // Null-terminate the merged array
+    arr[i] = '\0';
+}
+
+int main() {
+    char arr1[50] = "mohamed";
+    char arr2[50] = "sarhan";
+
+    merge_fun(arr1, arr2);
+
+    // Print the merged array
+    std::cout << arr << std::endl;
+
+    return 0;
+}
