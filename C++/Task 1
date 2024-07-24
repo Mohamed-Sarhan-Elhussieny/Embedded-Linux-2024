@@ -20,6 +20,37 @@ std::cout<<"the max number is :"<< maximum_fun(arr)<<std::endl;
 /************************************/
 #include <iostream>
 #define SIZE 5
+int search_fun(int array[],int num)
+{
+
+  for(int i=0;i<SIZE;i++)
+{
+    if(num==array[i])
+    return i;
+}  
+ std::cout<<"num not exist";
+ 
+ return 0;
+}
+
+int main() {
+
+   int arr[SIZE]={5,8,90,12,33};
+   for(int i=0;i<SIZE;i++)
+    {
+        std::cout<<arr[i]<<" ";
+    }
+    
+    std::cout<<"\n enter the num u need ";
+    int num;
+    std::cin>>num;
+    
+std::cout<<"the number u chosse is index :"<< search_fun(arr,num)<<std::endl;
+    return 0;
+}
+/************************************/
+#include <iostream>
+#define SIZE 5
 int delete_fun(int array[],int num)
 {
 
