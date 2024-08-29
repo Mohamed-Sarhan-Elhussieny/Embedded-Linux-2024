@@ -1,0 +1,42 @@
+#include <iostream>
+#include <array>
+
+class Drawable {
+public:
+    virtual void draw() const = 0; // Pure virtual function
+};
+
+class Triangle : public Drawable {
+public:
+    void draw() const override { 
+        std::cout << "I am a Triangle" << std::endl; 
+    }
+};
+
+class Rectangle : public Drawable {
+public:
+    void draw() const override { 
+        std::cout << "I am a Rectangle" << std::endl; 
+    }
+};
+
+class Circle : public Drawable {
+public:
+    void draw() const override { 
+        std::cout << "I am a Circle" << std::endl; 
+    }
+};
+
+int main() {
+    Triangle triangle;
+    Rectangle rectangle;
+    Circle circle;
+
+    std::array<Drawable*, 3> arr = { &triangle, &rectangle, &circle }; // Array of Drawable pointers
+
+    for (int i = 0; i < 3; ++i) {
+        arr[i]->draw(); // Call the draw function on each object
+    }
+
+    return 0;
+}
