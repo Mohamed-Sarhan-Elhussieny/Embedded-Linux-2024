@@ -1,89 +1,55 @@
+//==>create a function to find the maximum number of array
+#include <algorithm>
 #include <iostream>
-#define SIZE 5
-int maximum_fun(int array[])
-{
-int max=0;
+#include <array>
 
-  for(int i=0;i<SIZE;i++)
-{
-    if(max<array[i])
-    max=array[i];
-}  
-    return max;
-}
 int main() {
-   int arr[SIZE]={5,8,90,12,33};
-
-std::cout<<"the max number is :"<< maximum_fun(arr)<<std::endl;
+   std::array<int,SIZE> arr{5,8,90,12,33};
+   auto i= std::max_element(arr.begin(),arr.end());
+std::cout<<"the max number is :"<<*i<<std::endl;
     return 0;
 }
-/************************************/
-#include <iostream>
-#define SIZE 5
-int search_fun(int array[],int num)
-{
 
-  for(int i=0;i<SIZE;i++)
-{
-    if(num==array[i])
-    return i;
-}  
- std::cout<<"num not exist";
- 
- return 0;
-}
+/************************************/
+//==> create a function to search to the number in the array which number is take from user
 
 int main() {
 
-   int arr[SIZE]={5,8,90,12,33};
-   for(int i=0;i<SIZE;i++)
-    {
-        std::cout<<arr[i]<<" ";
-    }
+   std::array<int,5>arr{5,8,90,12,33};
+   std::for_each(arr.begin(),arr.end(),[](int i){std::cout<<i<<" ";});
     
     std::cout<<"\n enter the num u need ";
     int num;
     std::cin>>num;
-    
-std::cout<<"the number u chosse is index :"<< search_fun(arr,num)<<std::endl;
-    return 0;
+   auto it= std::find(arr.begin(),arr.end(),num);
+if (it != arr.end()) {
+        int index = std::distance(arr.begin(), it);
+        std::cout << "The number you chose is at index: " << index << std::endl;
+    } 
+    else {
+        std::cout << "Number not found in the array." << std::endl;
+    }   
+     return 0;
 }
+
 /************************************/
-#include <iostream>
-#define SIZE 5
-int delete_fun(int array[],int num)
-{
 
-  for(int i=0;i<SIZE;i++)
-{
-    if(num==array[i])
-    {
-       for(int l=i;l<SIZE-1;l++)
-         {
-             array[l]=array[l+1];
-         }
-    }
-}
-}
-int main() {
 
-   int arr[SIZE]={5,8,90,12,33};
-   for(int i=0;i<SIZE;i++)
-    {
-        std::cout<<arr[i]<<" ";
-    }
-    
-    std::cout<<"\n enter the num u need delete ";
-    int num;
-    std::cin>>num;
-    delete_fun(arr,num);
-   for(int i=0;i<SIZE-1;i++)
-    {
-        std::cout<<arr[i]<<" ";
-    }
+//// Function to delete a number in the array
 
-    return 0;
+
+void deleteNumber(std::vector<int>& arr, int number) {
+    arr.erase(std::remove(arr.begin(), arr.end(), number), arr.end());
 }
+
+/************************************/
+// Function to merge two arrays together
+std::vector<int> mergeArrays(const std::vector<int>& arr1, const std::vector<int>& arr2) {
+    std::vector<int> merged = arr1;
+    merged.insert(merged.end(), arr2.begin(), arr2.end());
+    return merged;
+}
+
 /************************************/
 #include <iostream>
 #define SIZE 10
