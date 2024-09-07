@@ -1,0 +1,179 @@
+//Check if the Character is a Digit
+#include <iostream>
+#include <cctype>
+
+int main() {
+    char ch;
+    std::cout << "Enter a character: ";
+    std::cin >> ch;
+
+    if (isdigit(ch)) {
+        std::cout << ch << " is a digit.\n";
+    } else {
+        std::cout << ch << " is not a digit.\n";
+    }
+
+    return 0;
+}
+
+=================================================================================================
+//Check if All Elements in an Array are Even
+
+#include <iostream>
+
+bool areAllEven(const int arr[], int size) {
+    for (int i = 0; i < size; ++i) {
+        if (arr[i] % 2 != 0) {
+            return false; // Found an odd number
+        }
+    }
+    return true; // All numbers are even
+}
+
+int main() {
+    int arr[] = {2, 4, 6, 8, 10};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    if (areAllEven(arr, size)) {
+        std::cout << "All elements in the array are even.\n";
+    } else {
+        std::cout << "Not all elements in the array are even.\n";
+    }
+
+    return 0;
+}
+
+=================================================================================================
+//Check if There is Any Even Value in an Array
+
+#include <iostream>
+
+bool hasAnyEven(const int arr[], int size) {
+    for (int i = 0; i < size; ++i) {
+        if (arr[i] % 2 == 0) {
+            return true; // Found an even number
+        }
+    }
+    return false; // No even numbers found
+}
+
+int main() {
+    int arr[] = {1, 3, 5, 7, 9};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    if (hasAnyEven(arr, size)) {
+        std::cout << "There is at least one even number in the array.\n";
+    } else {
+        std::cout << "There are no even numbers in the array.\n";
+    }
+
+    return 0;
+}
+
+//
+
+=================================================================================================
+//Write a String Class with length Member
+
+#include <iostream>
+#include <cstring> // For strlen
+
+class String {
+private:
+    char* str;
+public:
+    String(const char* s) {
+        str = new char[strlen(s) + 1];
+        strcpy(str, s);
+    }
+
+    ~String() {
+        delete[] str;
+    }
+
+    int length() const {
+        return strlen(str);
+    }
+
+    void display() const {
+        std::cout << "String: " << str << "\nLength: " << length() << '\n';
+    }
+};
+
+int main() {
+    String myString("Hello, World!");
+    myString.display();
+
+    return 0;
+}
+
+=================================================================================================
+//Handle Interrupt Signal (Ctrl+C)
+
+#include <iostream>
+#include <csignal>
+
+void signalHandler(int signal) {
+    std::cout << "Interrupt signal (" << signal << ") received.\n";
+    exit(signal);
+}
+
+int main() {
+    signal(SIGINT, signalHandler);
+
+    std::cout << "Program running. Press Ctrl+C to interrupt.\n";
+    while (true) {
+        // Infinite loop
+    }
+
+    return 0;
+}
+
+
+=================================================================================================
+//Fill Array from 10 to 10000 Sequentially
+
+
+#include <iostream>
+
+int main() {
+    const int SIZE = 10000 - 10 + 1;
+    int arr[SIZE];
+    
+    for (int i = 0; i < SIZE; ++i) {
+        arr[i] = 10 + i;
+    }
+
+    // Display the first 10 values as a sample
+    for (int i = 0; i < 10; ++i) {
+        std::cout << arr[i] << ' ';
+    }
+    std::cout << '\n';
+
+    return 0;
+}
+=================================================================================================
+//Calculate Accumulation of an Array
+
+#include <iostream>
+
+int calculateSum(const int arr[], int size) {
+    int sum = 0;
+    for (int i = 0; i < size; ++i) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    int sum = calculateSum(arr, size);
+    std::cout << "The sum of the array elements is: " << sum << '\n';
+
+    return 0;
+}
+
+
+
