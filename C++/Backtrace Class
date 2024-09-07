@@ -1,0 +1,67 @@
+#include <iostream>
+#include <stack>
+#include <string>
+
+class Backtrace {
+private:
+    std::stack<std::string> callStack;
+
+public:
+    // Function to be called at the entry of each function
+    void enterFunction(const std::string& functionName) {
+        callStack.push(functionName);
+    }
+
+    // Function to be called at the exit of each function
+    void exitFunction() {
+        if (!callStack.empty()) {
+            callStack.pop();
+        }
+    }
+
+    // Print the current call stack
+    void printStack() const {
+        std::stack<std::string> tempStack = callStack; // Copy stack to avoid modifying the original
+        std::cout << "Current call stack:\n";
+        while (!tempStack.empty()) {
+            std::cout << tempStack.top() << '\n';
+            tempStack.pop();
+        }
+    }
+};
+
+// Global instance of Backtrace for simplicity
+Backtrace backtrace;
+
+#define ENTER_FUNCTION(name) backtrace.enterFunction(name)
+#define EXIT_FUNCTION() backtrace.exitFunction()
+
+// Example functions using the Backtrace class
+void functionA() {
+    ENTER_FUNCTION("functionA");
+    // Simulate some work
+    std::cout << "Inside functionA\n";
+    functionB();
+    EXIT_FUNCTION();
+}
+
+void functionB() {
+    ENTER_FUNCTION("functionB");
+    // Simulate some work
+    std::cout << "Inside functionB\n";
+    functionC();
+    EXIT_FUNCTION();
+}
+
+void functionC() {
+    ENTER_FUNCTION("functionC");
+    // Simulate some work
+    std::cout << "Inside functionC\n";
+    backtrace.printStack(); // Print the current call stack
+    EXIT_FUNCTION();
+}
+
+int main() {
+    functionA();
+    return 0;
+}
