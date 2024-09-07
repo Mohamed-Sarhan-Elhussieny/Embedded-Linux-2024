@@ -1,0 +1,173 @@
+//=======>Create a Table for ASCII Codes
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    std::cout << "ASCII Table:\n";
+    std::cout << std::setw(5) << "Code" << std::setw(10) << "Character" << '\n';
+    
+    for (int i = 0; i < 128; ++i) {
+        std::cout <<" "<< i << "  " << static_cast<char>(i) << '\n';
+    }
+
+    return 0;
+}
+
+
+//======> Maximum Number Between Three Values
+#include <iostream>
+#include <algorithm>
+
+int main() {
+    int a, b, c;
+    std::cout << "Enter three integers:\n";
+    std::cin >> a >> b >> c;
+
+    int max = std::max({a, b, c});
+    std::cout << "The maximum value is: " << max << '\n';
+
+    return 0;
+}
+
+/=======>Right Angle Triangle
+
+#include <iostream>
+
+int main() {
+    int height;
+    std::cout << "Enter the height of the triangle:\n";
+    std::cin >> height;
+
+    for (int i = 1; i <= height; ++i) {
+        for (int j = 1; j <= i; ++j) {
+            std::cout << "*";
+        }
+        std::cout << '\n';
+    }
+
+    return 0;
+}
+
+
+//======> Decide if a Letter is a Vowel or Not
+
+#include <iostream>
+
+int main() {
+    char ch;
+    std::cout << "Enter a letter:\n";
+    std::cin >> ch;
+
+    ch = tolower(ch); // Convert to lowercase for simplicity
+
+    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+        std::cout << ch << " is a vowel.\n";
+    } else {
+        std::cout << ch << " is not a vowel.\n";
+    }
+
+  //========> Multiplication Table
+
+#include <iostream>
+
+int main() {
+    int num;
+    std::cout << "Enter a number:\n";
+    std::cin >> num;
+
+    std::cout << "Multiplication Table for " << num << ":\n";
+    for (int i = 1; i <= 10; ++i) {
+        std::cout << num << " x " << i << " = " << num * i << '\n';
+    }
+
+    return 0;
+}
+
+
+//=========> Summation of Digits of an Integer
+
+
+#include <iostream>
+
+int main() {
+    int num, sum = 0;
+    std::cout << "Enter an integer:\n";
+    std::cin >> num;
+
+    num = abs(num); // Handle negative numbers
+
+    while (num > 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+
+    std::cout << "The sum of the digits is: " << sum << '\n';
+
+    return 0;
+}
+
+  //======>Convert Between Decimal and Binary
+  #include <iostream>
+
+int main() {
+    int num, sum = 0;
+    std::cout << "Enter an integer:\n";
+    std::cin >> num;
+
+    num = abs(num); // Handle negative numbers
+
+    while (num > 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+
+    std::cout << "The sum of the digits is: " << sum << '\n';
+
+    return 0;
+}
+
+
+  //========>Convert Between Decimal and Binary
+
+
+
+#include <iostream>
+#include <bitset>
+#include <string>
+
+void decimalToBinary(int decimal) {
+    std::cout << "Binary: " << std::bitset<32>(decimal) << '\n'; // 32 bits for representation
+}
+
+int binaryToDecimal(const std::string& binary) {
+    return std::stoi(binary, nullptr, 2);
+}
+
+int main() {
+    int choice;
+    std::cout << "1. Decimal to Binary\n2. Binary to Decimal\nChoose an option (1/2):\n";
+    std::cin >> choice;
+
+    if (choice == 1) {
+        int decimal;
+        std::cout << "Enter a decimal number:\n";
+        std::cin >> decimal;
+        decimalToBinary(decimal);
+    } else if (choice == 2) {
+        std::string binary;
+        std::cout << "Enter a binary number:\n";
+        std::cin >> binary;
+        int decimal = binaryToDecimal(binary);
+        std::cout << "Decimal: " << decimal << '\n';
+    } else {
+        std::cout << "Invalid choice.\n";
+    }
+
+    return 0;
+}
+
+
+
+
+
+
