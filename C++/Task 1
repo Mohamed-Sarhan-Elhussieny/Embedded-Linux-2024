@@ -11,6 +11,8 @@ std::cout<<"the max number is :"<<*i<<std::endl;
 }
 
 /************************************/
+
+
 //==> create a function to search to the number in the array which number is take from user
 
 int main() {
@@ -35,7 +37,7 @@ if (it != arr.end()) {
 /************************************/
 
 
-//// Function to delete a number in the array
+//====> Function to delete a number in the array
 
 
 void deleteNumber(std::vector<int>& arr, int number) {
@@ -51,6 +53,8 @@ std::vector<int> mergeArrays(const std::vector<int>& arr1, const std::vector<int
 }
 
 /************************************/
+
+
 #include <iostream>
 #define SIZE 10
 int arr_odd[SIZE];
@@ -100,7 +104,10 @@ int main() {
 
     return 0;
 }
+
+
 /************************************/
+
 
 #include <iostream>
 
@@ -138,7 +145,11 @@ int main() {
 
     return 0;
 }
+
+
 /**********************************************************/
+
+
 #include<iostream>
 
 
