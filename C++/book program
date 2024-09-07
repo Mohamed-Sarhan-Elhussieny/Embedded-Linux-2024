@@ -1,0 +1,103 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+
+struct Contact {
+    std::string name;
+    std::string phoneNumber;
+    std::string email;
+
+    // Function to display contact details
+    void display() const {
+        std::cout << "Name: " << name << '\n';
+        std::cout << "Phone Number: " << phoneNumber << '\n';
+        std::cout << "Email: " << email << '\n';
+    }
+};
+
+class AddressBook {
+private:
+    std::vector<Contact> contacts;
+
+public:
+    void addContact(const Contact& contact) {
+        contacts.push_back(contact);
+    }
+
+    void updateContact(const std::string& name) {
+        auto it = std::find_if(contacts.begin(), contacts.end(),
+            [&name](const Contact& c) { return c.name == name; });
+
+        if (it != contacts.end()) {
+            std::cout << "Enter new details for " << name << '\n';
+            std::cout << "New Phone Number: ";
+            std::cin >> it->phoneNumber;
+            std::cout << "New Email: ";
+            std::cin >> it->email;
+        } else {
+            std::cout << "Contact not found.\n";
+        }
+    }
+
+    void searchContact(const std::string& name) const {
+        auto it = std::find_if(contacts.begin(), contacts.end(),
+            [&name](const Contact& c) { return c.name == name; });
+
+        if (it != contacts.end()) {
+            it->display();
+        } else {
+            std::cout << "Contact not found.\n";
+        }
+    }
+};
+
+int main() {
+    AddressBook addressBook;
+    int choice;
+    std::string name;
+
+    do {
+        std::cout << "\nAddress Book Menu:\n";
+        std::cout << "1. Add Contact\n";
+        std::cout << "2. Update Contact\n";
+        std::cout << "3. Search Contact\n";
+        std::cout << "4. Exit\n";
+        std::cout << "Enter your choice: ";
+        std::cin >> choice;
+
+        switch (choice) {
+            case 1: {
+                Contact newContact;
+                std::cout << "Enter name: ";
+                std::cin.ignore();  // To ignore the newline character left in the buffer
+                std::getline(std::cin, newContact.name);
+                std::cout << "Enter phone number: ";
+                std::cin >> newContact.phoneNumber;
+                std::cout << "Enter email: ";
+                std::cin >> newContact.email;
+                addressBook.addContact(newContact);
+                break;
+            }
+            case 2:
+                std::cout << "Enter the name of the contact to update: ";
+                std::cin.ignore();
+                std::getline(std::cin, name);
+                addressBook.updateContact(name);
+                break;
+            case 3:
+                std::cout << "Enter the name of the contact to search: ";
+                std::cin.ignore();
+                std::getline(std::cin, name);
+                addressBook.searchContact(name);
+                break;
+            case 4:
+                std::cout << "Exiting...\n";
+                break;
+            default:
+                std::cout << "Invalid choice. Please try again.\n";
+        }
+    } while (choice != 4);
+
+    return 0;
+}
