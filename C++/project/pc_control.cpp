@@ -1,6 +1,3 @@
- //pc_control
- // g++ pc_control.cpp server.cpp command.cpp -pthread -std=c++14 -lws2_32; ./a.exe
-
 #include"server.hpp"
 #include"command.hpp"
 
@@ -45,7 +42,7 @@
                         
 
                      std::string text_recv = server.server_recv_client_msg();
-                     server.trim_end(text_recv); // embabi fun watermark 
+                     server.trim_end(text_recv);
 
                         if (text_recv=="exit" || text_recv=="EXIT")
                         {  
