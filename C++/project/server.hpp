@@ -27,8 +27,6 @@ public:
     bool server_send_msg(const std::string &message);
     void trim_end(std::string &str);
     void server_close();
-    // void close_listening();
-    // void close_listening_client();
 };
 
 #endif
