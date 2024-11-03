@@ -29,7 +29,7 @@ bool COMMAND::open_website(const std::string &website)
 
     if (website == "Google")
     {
-        command = "start \"\" \"https://www.google.com\""; // Empty title followed by URL in quotes
+        command = "start \"\" \"https://www.google.com\""; 
     }
     else if (website == "YouTube")
     {
@@ -82,11 +82,6 @@ void COMMAND::pc_orders(const std::string &cmd)
 
         std::cout << "Restarting PC" << std::endl;
         restartSystem();
-    }
-    else if (cmd == "wake up")
-    {
-
-        std::cout << "Restarting PC" << std::endl;
     }
   
 }
